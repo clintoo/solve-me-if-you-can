@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WordQuest Begins</title>
+  <title>The Quest Begins</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -55,7 +55,7 @@
 </head>
 <body>
   <div class="container">
-    <h2>WordQuest Begins</h2>
+    <h2>The Quest Begins</h2>
 
     <div id="initialInput">
       <input type="text" id="passwordInput" placeholder="Enter password..." />
@@ -63,7 +63,7 @@
     </div>
 
     <div id="puzzleSection">
-      <h3>Riddle Unlocked 🔓</h3>
+      <h3>Congrats, now you get to solve this.</h3>
       <p>
         I speak without a tongue, yet stories I tell.<br>
         I open portals but never yell.<br>
@@ -86,7 +86,7 @@
   <script>
     function checkPassword() {
       const password = document.getElementById("passwordInput").value.trim().toLowerCase();
-      if (password === "fridge") {
+      if (password === "09.05.28") {
         document.getElementById("initialInput").style.display = "none";
         document.getElementById("puzzleSection").style.display = "block";
       } else {
