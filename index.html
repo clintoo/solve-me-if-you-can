@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WordQuest Begins</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+      color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      max-width: 600px;
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+    input[type="text"], button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    input[type="text"] {
+      width: 80%;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+    #puzzleSection, #nextClue {
+      display: none;
+      margin-top: 2rem;
+    }
+    a {
+      color: #4ecdc4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>WordQuest Begins</h2>
+    <p><strong>First Clue:</strong> I wear a coat but have no face. I live near where the warmth escapes. You’ll find me standing, cold and still—your secret lies behind my chill.</p>
+    <p><em>(Find the password and return.)</em></p>
+    <input type="text" id="passwordInput" placeholder="Enter password..." />
+    <button onclick="checkPassword()">Unlock</button>
+
+    <div id="puzzleSection">
+      <h3>Puzzle Unlocked 🔓</h3>
+      <p>
+        I speak without a tongue, yet stories I tell.<br>
+        I open portals but never yell.<br>
+        I sit with others upon a shelf,<br>
+        Holding magic, sorrow, or stealth.<br>
+        I'm never alive, yet I can breathe—<br>
+        Guess what I am and you may leave.
+      </p>
+      <input type="text" id="riddleAnswer" placeholder="Your answer..." />
+      <button onclick="checkRiddle()">Submit Answer</button>
+    </div>
+
+    <div id="nextClue">
+      <p>🎉 Correct! Your next clue awaits: <a href="https://example.com/next-clue" target="_blank">Continue the quest</a></p>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value.trim().toLowerCase();
+      if (password === "fridge") {
+        document.getElementById("puzzleSection").style.display = "block";
+      } else {
+        alert("Hmm... that doesn't seem right. Try again.");
+      }
+    }
+
+    function checkRiddle() {
+      const answer = document.getElementById("riddleAnswer").value.trim().toLowerCase();
+      if (answer === "book") {
+        document.getElementById("nextClue").style.display = "block";
+      } else {
+        alert("Not quite... keep thinking!");
+      }
+    }
+  </script>
+</body>
+</html>
