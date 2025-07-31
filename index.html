@@ -43,6 +43,9 @@
       display: none;
       margin-top: 2rem;
     }
+    #initialInput {
+      display: block;
+    }
     a {
       color: #4ecdc4;
       text-decoration: none;
@@ -53,8 +56,11 @@
 <body>
   <div class="container">
     <h2>WordQuest Begins</h2>
-    <input type="text" id="passwordInput" placeholder="Enter password..." />
-    <button onclick="checkPassword()">Unlock</button>
+
+    <div id="initialInput">
+      <input type="text" id="passwordInput" placeholder="Enter password..." />
+      <button onclick="checkPassword()">Unlock</button>
+    </div>
 
     <div id="puzzleSection">
       <h3>Riddle Unlocked 🔓</h3>
@@ -81,6 +87,7 @@
     function checkPassword() {
       const password = document.getElementById("passwordInput").value.trim().toLowerCase();
       if (password === "fridge") {
+        document.getElementById("initialInput").style.display = "none";
         document.getElementById("puzzleSection").style.display = "block";
       } else {
         alert("Hmm... that doesn't seem right. Try again.");
@@ -90,6 +97,7 @@
     function checkRiddle() {
       const answer = document.getElementById("riddleAnswer").value.trim().toLowerCase();
       if (answer === "book") {
+        document.getElementById("puzzleSection").style.display = "none";
         document.getElementById("nextClue").style.display = "block";
       } else {
         alert("Not quite... keep thinking!");
