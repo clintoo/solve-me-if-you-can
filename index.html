@@ -65,15 +65,9 @@
     <div id="puzzleSection">
       <h3>Congrats, now you get to solve this.</h3>
       <p>
-        I speak without a tongue, yet stories I tell.<br>
-        I open portals but never yell.<br>
-        I sit with others upon a shelf,<br>
-        Holding magic, sorrow, or stealth.<br>
-        I'm never alive, yet I can breathe—<br>
-        Guess what I am and you may leave.<br>
-        To find the trail that leads ahead,<br>
-        Type my name, just as it's said.
-      </p>
+        Let's keep the adventure rolling, here is the challenge.<br>
+        The poor have it. The rich need it. If you eat it, you die. What is it?.<br>
+        
       <input type="text" id="riddleAnswer" placeholder="Your answer..." />
       <button onclick="checkRiddle()">Submit Answer</button>
     </div>
@@ -96,7 +90,7 @@
 
     function checkRiddle() {
       const answer = document.getElementById("riddleAnswer").value.trim().toLowerCase();
-      if (answer === "book") {
+      if (answer === "") {
         document.getElementById("puzzleSection").style.display = "none";
         document.getElementById("nextClue").style.display = "block";
       } else {
