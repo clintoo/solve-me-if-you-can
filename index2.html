@@ -9,7 +9,6 @@
       color: #f0f0f0;
       font-family: 'Segoe UI', sans-serif;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
@@ -23,6 +22,7 @@
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 0 12px rgba(0,0,0,0.4);
+      transition: opacity 0.5s ease;
     }
 
     input[type="text"], button {
@@ -39,21 +39,20 @@
       cursor: pointer;
     }
 
-    #nextClue {
-      display: none;
-      margin-top: 2rem;
-      font-style: italic;
-    }
-
     a {
       color: #4ecdc4;
       font-weight: bold;
       text-decoration: none;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- First card -->
+  <div class="container" id="card1">
     <h2>🕵️ Memory Lane</h2>
     <p>
       A journey of a million clicks began with this humble star, it was the first of many.<br>
@@ -70,27 +69,41 @@
 
     <input type="text" id="videoRiddleAnswer" placeholder="Your answer..." />
     <button onclick="checkVideoRiddle()">Submit</button>
+  </div>
 
-    <div id="nextClue">
-      <p>💡 Well done! But you're not done yet...</p>
-      <p>
-        Some things are best flushed away, <br/>
-        Yet secrets may lie where you sit each day. <br/>
-        The seat of thought, some might jest, <br/>
-        Not in a library. <br/>
-        A throne for one. <br/>
-        Go now, the next clue waits... not far.
-      </p>
-    </div>
+  <!-- Second card (hidden initially) -->
+  <div class="container hidden" id="card2">
+    <h2>🚽 The Porcelain Throne</h2>
+    <p>
+      💡 Well done! But you're not done yet...
+    </p>
+    <p>
+      Some things are best flushed away, <br/>
+      Yet secrets may lie where you sit each day. <br/>
+      The seat of thought, some might jest, <br/>
+      Not in a library. <br/>
+      A throne for one. <br/>
+      Go now, the next clue waits... not far.
+    </p>
   </div>
 
   <script>
     function checkVideoRiddle() {
       const answer = document.getElementById("videoRiddleAnswer").value.trim().toLowerCase();
       if (answer === "elephant" || answer === "elephants") {
-        document.getElementById("videoRiddleAnswer").style.display = "none";
-        document.querySelector("button").style.display = "none";
-        document.getElementById("nextClue").style.display = "block";
+        const card1 = document.getElementById("card1");
+        const card2 = document.getElementById("card2");
+
+        // Fade out card1
+        card1.style.opacity = 0;
+        setTimeout(() => {
+          card1.classList.add("hidden");
+          card2.classList.remove("hidden");
+          card2.style.opacity = 0;
+          setTimeout(() => {
+            card2.style.opacity = 1;
+          }, 50);
+        }, 500);
       } else {
         alert("Hmm... think again. Focus on the creature in the video.");
       }
