@@ -25,13 +25,6 @@
       box-shadow: 0 0 12px rgba(0,0,0,0.4);
     }
 
-    iframe {
-      width: 100%;
-      height: 315px;
-      margin-top: 1rem;
-      border: none;
-    }
-
     input[type="text"], button {
       padding: 0.6rem 1rem;
       margin-top: 1rem;
@@ -46,9 +39,10 @@
       cursor: pointer;
     }
 
-    #nextLink {
+    #nextClue {
       display: none;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
+      font-style: italic;
     }
 
     a {
@@ -77,9 +71,16 @@
     <input type="text" id="videoRiddleAnswer" placeholder="Your answer..." />
     <button onclick="checkVideoRiddle()">Submit</button>
 
-    <div id="nextLink">
-      <p>🎉 Right on! Head to your next challenge:  
-      <a href="https://example.com/clue-3" target="_blank">Clue #3</a></p>
+    <div id="nextClue">
+      <p>💡 Well done! But you're not done yet...</p>
+      <p>
+        Some things are best flushed away, <br/>
+        Yet secrets may lie where you sit each day. <br/>
+        The seat of thought, some might jest, <br/>
+        Not in a library. <br/>
+        A throne for one. <br/>
+        Go now, the next clue waits... not far.
+      </p>
     </div>
   </div>
 
@@ -89,9 +90,9 @@
       if (answer === "elephant" || answer === "elephants") {
         document.getElementById("videoRiddleAnswer").style.display = "none";
         document.querySelector("button").style.display = "none";
-        document.getElementById("nextLink").style.display = "block";
+        document.getElementById("nextClue").style.display = "block";
       } else {
-        alert("Close, but not quite. Think about what you *saw*.");
+        alert("Hmm... think again. Focus on the creature in the video.");
       }
     }
   </script>
